@@ -95,5 +95,9 @@ public class Usuario {
     public void setTipo(int tipo) {
         this.tipo = tipo;
     }
+    
+    public boolean verificaLogin(String login, String senha){
+        return(this.login.equals(login) && this.senha.equals(senha));
+    }
 }
     

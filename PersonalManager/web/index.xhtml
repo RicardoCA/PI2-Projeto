@@ -8,24 +8,24 @@
     </h:head>
     <h:body>
         <ui:composition template="./template.xhtml">
-            
-        
-         <ui:define name="content">
+
+
+            <ui:define name="content">
                 <h1>Personal Manager</h1>
                 <!--<h:link value="Formulario" outcome="formulario" />-->
-              <h:form>
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Usuario: " for="idUsuario"/>
-                <h:inputText value="#{loginMB.login}" id="idUsuario"/>
-                <h:outputLabel value="Senha: " for="idSenha"/>
-                <h:inputSecret value="#{loginMB.senha}" id="idSenha"/>
-                <h:commandButton value="Login" action="#{loginMB.verificaLogin()}" />
-                <h:button value="Faça seu cadastro!" outcome="formulario_cadastro"/>
-            </h:panelGrid>
-            <h:messages id="idMensagem" showDetail="true" errorClass="mensagem"/>
-        </h:form>
-         </ui:define>
-        
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Usuario: " for="idUsuario"/>
+                        <h:inputText value="#{loginMB.login}" id="idUsuario"/>
+                        <h:outputLabel value="Senha: " for="idSenha"/>
+                        <h:inputSecret value="#{loginMB.senha}" id="idSenha"/>
+                        <h:commandButton value="Login" action="#{loginMB.verificaLogin()}" />
+                        <h:button value="Faça seu cadastro!" outcome="formulario_cadastro"/>
+                    </h:panelGrid>
+                    <h:messages id="idMensagem" showDetail="true" errorClass="mensagem"/>
+                </h:form>
+            </ui:define>
+
         </ui:composition>
     </h:body>
 </html>

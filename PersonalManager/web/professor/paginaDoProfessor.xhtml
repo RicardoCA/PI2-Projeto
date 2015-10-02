@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Projeto CRUD</title>
+    </h:head>
+    <h:body>
+        <h1>Página do Professor</h1>
+        <h2>Dados Cadastrais</h2>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Nome: "/>
+                <h:outputText value="#{loginMB.usuarioLogado.nome}" id="idUsuario"/>
+                <h:outputLabel value="Telefone: "/>
+                <h:outputText value="#{loginMB.usuarioLogado.telefone}" id="idTelefone"/>
+                <h:outputLabel value="E-mail: "/>
+                <h:outputText value="#{loginMB.usuarioLogado.email}" id="idEmail"/>
+                <h:outputLabel value="Login: "/>
+                <h:outputText value="#{loginMB.usuarioLogado.login}" id="idLogin"/>
+                <h:outputLabel value="Senha: "/>
+                <h:outputText value="#{loginMB.usuarioLogado.senha}" id="idSenha"/>
+                <h:outputLabel value="Sexo: "/>
+                <h:outputText value="#{loginMB.usuarioLogado.sexoString}" id="idSexo"/>
+                <h:outputLabel value="Estado: "/>
+                <h:outputText value="#{loginMB.usuarioLogado.estado}" id="idEstado"/>
+                <h:outputLabel value="Perfil: "/>
+                <h:outputText value="#{loginMB.usuarioLogado.tipoString}" id="idPerfil"/>
+            </h:panelGrid>
+            <br/><br/>
+            <h:commandButton value="Editar" action="#{usuarioMB.editarUsuario()}" />
+            <h:commandButton value="Cancelar Conta" action="#{usuarioMB.removerUsuario()}" />
+            <h:commandLink value="Logout" action="#{loginMB.realizaLogout()}"/>
+        </h:form>
+    </h:body>
+</html>
+

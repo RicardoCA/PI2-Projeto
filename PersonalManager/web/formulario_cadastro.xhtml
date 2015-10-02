@@ -12,16 +12,16 @@
                 <h:form>
                     <h:panelGrid columns="2" >
                         <h:outputLabel for="idNome" value="Nome:"/>
-                        <h:inputText id="idNome" value="#{usuarioMB.usuario.nome}"  />
+                        <h:inputText required="true" id="idNome" value="#{usuarioMB.usuario.nome}"  />
 
                         <h:outputLabel for="idTelefone" value="Telefone:"/>
-                        <h:inputText id="idTelefone" value="#{usuarioMB.usuario.telefone}" />
+                        <h:inputText required="true" id="idTelefone" value="#{usuarioMB.usuario.telefone}" />
 
                         <h:outputLabel for="idEmail" value="Email:"/>
-                        <h:inputText id="idEmail" value="#{usuarioMB.usuario.email}" />
+                        <h:inputText required="true" id="idEmail" value="#{usuarioMB.usuario.email}" />
 
                         <h:outputLabel for="idSexo" value="Sexo:" />
-                        <h:selectOneRadio id="idSexo" value="#{usuarioMB.usuario.sexo}">
+                        <h:selectOneRadio id="idSexo" value="#{usuarioMB.usuario.sexo}" >
                             <f:selectItem itemLabel="Masculino" itemValue="1" />
                             <f:selectItem itemLabel="Feminino" itemValue="2" />
                         </h:selectOneRadio>
@@ -36,10 +36,10 @@
                         </h:selectOneMenu>
 
                         <h:outputLabel for="idLogin" value="Login:"/>
-                        <h:inputText id="idLogin" value="#{usuarioMB.usuario.login}" />
+                        <h:inputText required="true" id="idLogin" value="#{usuarioMB.usuario.login}" />
 
                         <h:outputLabel for="idSenha" value="Senha"/>
-                        <h:inputSecret id="idSenha" value="#{usuarioMB.usuario.senha}" />
+                        <h:inputSecret required="true" id="idSenha" value="#{usuarioMB.usuario.senha}" />
 
                         <h:outputLabel for="tipo" value="Categoria:"/>
                        
