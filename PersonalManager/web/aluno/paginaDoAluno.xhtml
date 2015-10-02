@@ -29,6 +29,8 @@
                 <h:outputText value="#{loginMB.usuarioLogado.tipoString}" id="idPerfil"/>
             </h:panelGrid>
             <br/><br/>
+            <h:commandButton value="Editar" action="#{usuarioMB.editarUsuario()}" />
+            <h:commandButton value="Cancelar Conta" action="#{usuarioMB.removerUsuario()}" />
             <h:commandLink value="Logout" action="#{loginMB.realizaLogout()}"/>
         </h:form>
     </h:body>
