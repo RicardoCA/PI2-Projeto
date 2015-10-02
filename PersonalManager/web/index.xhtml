@@ -3,8 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      
     <h:head>
-        <title>Facelet Title</title>
+        <title>Personal Manager</title>
+        
+       
+            
     </h:head>
     <h:body>
         <ui:composition template="./template.xhtml">
@@ -15,8 +19,8 @@
                 <!--<h:link value="Formulario" outcome="formulario" />-->
                 <h:form>
                     <h:panelGrid columns="2">
-                        <h:outputLabel value="Usuario: " for="idUsuario"/>
-                        <h:inputText value="#{loginMB.login}" id="idUsuario"/>
+                        <h:outputLabel  value="Usuario: " for="idUsuario"/>
+                        <h:inputText value="#{loginMB.login}" id="idUsuario" />
                         <h:outputLabel value="Senha: " for="idSenha"/>
                         <h:inputSecret value="#{loginMB.senha}" id="idSenha"/>
                         <h:commandButton value="Login" action="#{loginMB.verificaLogin()}" />
