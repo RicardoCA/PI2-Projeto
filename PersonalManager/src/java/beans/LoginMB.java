@@ -66,13 +66,15 @@ public class LoginMB {
         }
 
         FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                "Login inválido!", "Usuário ou senha estão errados!");
+                "Login inválido! Usuário ou senha estão errados!", "Usuário ou senha estão errados!");
 
         contexto.addMessage(
                 "idMensagem", mensagem);
 
-        return ("/login");
+        return ("index");
     }
+    
+    
 
     public String realizaLogout() {
         usuarioLogado = null;

@@ -2,6 +2,7 @@ package beans;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.context.FacesContext;
@@ -91,5 +92,24 @@ public class UsuarioMB {
             listaUsuarios.remove(loginMB.getUsuarioLogado());
         }
         return ("/index?faces-redirect=true");
+    }
+    
+    
+    public String cadastrar(){
+        
+        if(!getUsuario().getEmail().equals("")){
+            return ("formulario_cadastro?faces-redirect=true");
+        }
+        else{
+        
+        FacesContext contexto = FacesContext.getCurrentInstance();
+        FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                "Digite um email válido!", "Erro");
+        
+        contexto.addMessage(
+                "idEmailMensagem", mensagem);
+        return("index");
+        }
+        
     }
 }

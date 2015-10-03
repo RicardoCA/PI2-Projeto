@@ -18,13 +18,30 @@ h1 {
 }
 
 a:link, a:visited {
-  color: #045491;
-  font-weight : bold;
-  text-decoration: none;
+    color: #045491;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 a:link:hover, a:visited:hover  {
-  color: #045491;
-  font-weight : bold;
-  text-decoration : underline;
+    color: #045491;
+    font-weight : bold;
+    text-decoration : underline;
+}
+#pai {
+    width:30%; // Pode utilizar px ou qualquer outra medida
+    margin:left; // Deixaria no centro, margem automática para direita e esquerda
+}
+
+#esquerda {
+    width:30%; // Pode utilizar px ou qualquer outra medida
+    float:left; // Deixa ela do lado esquerdo
+}
+
+#direita {
+    margin-left: 30px;
+}
+
+#clear {
+    clear:both; // Ajusta o tamanho da div #pai por causa dos float left e right
 }

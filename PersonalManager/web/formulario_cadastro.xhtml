@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='windows-1252' ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -6,28 +6,46 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:body>
         <ui:composition template="./template.xhtml">
+            
+            <ui:define name="top">
+                <nav class="navbar navbar-default bg-primary">
+                    <a class="navbar-brand" href="faces/index.xhtml">Personal Manager</a>
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="faces/index.xhtml">Principal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Adquirir</a>
+                        </li>
+                    </ul>
+                </nav>
+            </ui:define>
 
             <ui:define name="content">
-                <h1>Registro</h1>
+                
                 <h:form>
                     <h:panelGrid columns="2" >
                         <h:outputLabel for="idNome" value="Nome:"/>
-                        <h:inputText required="true" id="idNome" value="#{usuarioMB.usuario.nome}"  />
-
+                        <h:inputText required="true" class="form-control" id="idNome" value="#{usuarioMB.usuario.nome}"  />
+                        
+                        
+                        
                         <h:outputLabel for="idTelefone" value="Telefone:"/>
-                        <h:inputText required="true" id="idTelefone" value="#{usuarioMB.usuario.telefone}" />
-
+                        <h:inputText required="true" class="form-control" id="idTelefone" value="#{usuarioMB.usuario.telefone}" />
+                        
+                        
                         <h:outputLabel for="idEmail" value="Email:"/>
-                        <h:inputText required="true" id="idEmail" value="#{usuarioMB.usuario.email}" />
-
-                        <h:outputLabel for="idSexo" value="Sexo:" />
+                        <h:inputText required="true" id="idEmail" class="form-control" value="#{usuarioMB.usuario.email}" />
+                        
+                        
+                        <h:outputLabel for="idSexo" value="Sexo:" class="checkbox"/>
                         <h:selectOneRadio id="idSexo" value="#{usuarioMB.usuario.sexo}" >
                             <f:selectItem itemLabel="Masculino" itemValue="1" />
                             <f:selectItem itemLabel="Feminino" itemValue="2" />
                         </h:selectOneRadio>
 
                         <h:outputLabel for="idEstado" value="Estado:" />
-                        <h:selectOneMenu id="idEstado" value="#{usuarioMB.usuario.estado}">
+                        <h:selectOneMenu id="idEstado" value="#{usuarioMB.usuario.estado}" class="form-control">
                             <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />
                             <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />
                             <f:selectItem itemLabel="Paraná" itemValue="PR" />
@@ -36,10 +54,10 @@
                         </h:selectOneMenu>
 
                         <h:outputLabel for="idLogin" value="Login:"/>
-                        <h:inputText required="true" id="idLogin" value="#{usuarioMB.usuario.login}" />
+                        <h:inputText required="true" class="form-control" id="idLogin" value="#{usuarioMB.usuario.login}" />
 
                         <h:outputLabel for="idSenha" value="Senha"/>
-                        <h:inputSecret required="true" id="idSenha" value="#{usuarioMB.usuario.senha}" />
+                        <h:inputSecret required="true" class="form-control" id="idSenha" value="#{usuarioMB.usuario.senha}" />
 
                         <h:outputLabel for="tipo" value="Categoria:"/>
                        
