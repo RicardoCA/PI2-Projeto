@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <title>Personal Manager</title>
@@ -13,10 +14,10 @@
 
             <ui:define name="top">
                 <nav class="navbar navbar-default bg-primary">
-                    <a class="navbar-brand" href="faces/index.xhtml">Personal Manager</a>
+                    <a class="navbar-brand" href="index.xhtml">Personal Manager</a>
                     <ul class="nav navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="faces/index.xhtml">Principal <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="index.xhtml">Principal <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Adquirir</a>
@@ -31,12 +32,12 @@
                         <div class="well col-lg-4 col-offset-4">
                             <h3>Login</h3>
                             <h:form class="form-group">
-                                <h:outputLabel  value="Usuário: " for="idUsuario" />
-                                <h:inputText  class="form-control" id="idUsuario" value="#{loginMB.login}" />
-                                <h:outputLabel  value="Senha: " for="idSenha" />
+                                <p:outputLabel  value="Usuário: " for="idUsuario" />
+                                <p:inputText  class="form-control" id="idUsuario" value="#{loginMB.login}" />
+                                <p:outputLabel  value="Senha: " for="idSenha" />
                                 <h:inputSecret  class="form-control" id="idSenha" value="#{loginMB.senha}" />
                                 <br/>
-                                <h:commandButton class="btn btn-success" value="Logar" action="#{loginMB.verificaLogin()}" />
+                                <p:commandButton class="btn btn-success" value="Logar" action="#{loginMB.verificaLogin()}" />
                                 
                                 <h:message for="idSenha" id="idMensagem" showDetail="true" errorClass="mensagem"/>
                             </h:form>
@@ -46,10 +47,10 @@
                         <div id="direita" class="well col-lg-4 col-offset-4">
                             <h3>Registro</h3>
                             <h:form class="form-group">
-                                <h:outputLabel  value="Email: " for="idEmail" />
-                                <h:inputText  class="form-control" id="idEmail" value="#{usuarioMB.usuario.email}" />
+                                <p:outputLabel  value="Email: " for="idEmail" />
+                                <p:inputText  class="form-control" id="idEmail" value="#{usuarioMB.usuario.email}" />
                                 <br/>
-                                <h:commandButton class="btn btn-default" value="Registrar" action="#{usuarioMB.cadastrar()}" />
+                                <p:commandButton class="btn btn-default" value="Registrar" action="#{usuarioMB.cadastrar()}" />
                                
                             </h:form>
                             
