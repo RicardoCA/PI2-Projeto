@@ -4,10 +4,17 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+       
+
+    </h:head>
+
+
+
     <h:body>
         <ui:composition template="./template.xhtml">
-            
-             <ui:define name="top">
+
+            <ui:define name="top">
                 <nav class="navbar navbar-default bg-primary">
                     <a class="navbar-brand" href="index.xhtml">Personal Manager</a>
                     <ul class="nav navbar-nav">
@@ -22,58 +29,70 @@
             </ui:define>
 
             <ui:define name="content">
-                <h1>Registro</h1>
-                <h:form>
-                    <h:panelGrid columns="2" >
-                        <h:outputLabel for="idNome" value="Nome:"/>
-                        <h:inputText class="form-control" required="true" id="idNome" value="#{usuarioMB.usuario.nome}"  />
 
-                        <h:outputLabel for="idTelefone" value="Telefone:"/>
-                        <h:inputText class="form-control" required="true" id="idTelefone" value="#{usuarioMB.usuario.telefone}" />
 
-                        <h:outputLabel for="idEmail" value="Email:"/>
-                        <h:inputText class="form-control" required="true" id="idEmail" value="#{usuarioMB.usuario.email}" />
-                        <h:outputLabel for="idSexo" value="Sexo:" />
-                        
-                        
-                            
-                        
-                        <h:selectOneRadio id="idSexo" value="#{usuarioMB.usuario.sexo}" >
-                            <f:selectItem itemLabel="Masculino" itemValue="1" />
-                            <f:selectItem itemLabel="Feminino" itemValue="2" />
-                        </h:selectOneRadio>
+                <div class="container">
+                    <h1>Registro</h1>
 
-                        
-                        
-                        <h:outputLabel for="idEstado" value="Estado:" />
-                        <h:selectOneMenu id="idEstado" value="#{usuarioMB.usuario.estado}" class="form-control">
-                            <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />
-                            <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />
-                            <f:selectItem itemLabel="Paraná" itemValue="PR" />
-                            <f:selectItem itemLabel="São Paulo" itemValue="SP" />
-                            <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />
-                        </h:selectOneMenu>
+                    <div class="well col-lg-4 col-offset-4">
 
-                        <h:outputLabel for="idLogin" value="Login:"/>
-                        <h:inputText class="form-control" required="true" id="idLogin" value="#{usuarioMB.usuario.login}" />
+                        <h:form>
+                            <h:panelGrid columns="2" > 
 
-                        <h:outputLabel for="idSenha" value="Senha"/>
-                        <h:inputSecret class="form-control" required="true" id="idSenha" value="#{usuarioMB.usuario.senha}" />
+                                <h:outputLabel for="idNome" value="Nome:"/>
+                                <h:inputText class="form-control" required="true" id="idNome" value="#{usuarioMB.usuario.nome}"  />
 
-                        <h:outputLabel for="tipo" value="Categoria:"/>
-                       
-                        
-                        <h:selectOneRadio id="tipo" value="#{usuarioMB.usuario.tipo}">
-                            <f:selectItem itemLabel="Professor"  itemValue="1"/>
-                            <f:selectItem itemLabel="Aluno"  itemValue="2"/>
-                        </h:selectOneRadio>
-                        <br/>
+                                <h:outputLabel for="idTelefone" value="Telefone:"/>
+                                <h:inputText class="form-control" required="true" id="idTelefone" value="#{usuarioMB.usuario.telefone}" />
 
-                        <h:commandButton class="btn btn-success" value="Cadastrar" action="#{usuarioMB.addUsuario()}"/>
-                    </h:panelGrid>
-                </h:form>
+                                <h:outputLabel for="idEmail" value="Email:"/>
+                                <h:inputText class="form-control" required="true" id="idEmail" value="#{usuarioMB.usuario.email}" />
+                                <h:outputLabel for="idSexo" value="Sexo:" />
+
+
+
+
+
+                                <h:selectOneRadio id="idSexo" value="#{usuarioMB.usuario.sexo}" >
+                                    <f:selectItem itemLabel="Masculino" itemValue="1" />
+                                    <f:selectItem itemLabel="Feminino" itemValue="2" />
+                                </h:selectOneRadio>
+
+
+
+                                <h:outputLabel for="idEstado" value="Estado:" />
+                                <h:selectOneMenu id="idEstado" value="#{usuarioMB.usuario.estado}" class="form-control">
+                                    <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />
+                                    <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />
+                                    <f:selectItem itemLabel="Paraná" itemValue="PR" />
+                                    <f:selectItem itemLabel="São Paulo" itemValue="SP" />
+                                    <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />
+                                </h:selectOneMenu>
+
+                                <h:outputLabel for="idLogin" value="Login:"/>
+                                <h:inputText class="form-control" required="true" id="idLogin" value="#{usuarioMB.usuario.login}" />
+
+                                <h:outputLabel for="idSenha" value="Senha"/>
+                                <h:inputSecret class="form-control" required="true" id="idSenha" value="#{usuarioMB.usuario.senha}" />
+
+                                <h:outputLabel for="tipo" value="Categoria:"/>
+
+
+                                <h:selectOneRadio id="tipo" value="#{usuarioMB.usuario.tipo}">
+                                    <f:selectItem  itemLabel="Professor"  itemValue="1"/>
+                                    <f:selectItem itemLabel="Aluno"  itemValue="2"/>
+                                </h:selectOneRadio>
+                                
+                                <h:button class="btn btn-danger" value="Limpar Campos" onclick="#{usuarioMB.usuario.limparCampos()}" />
+                                <h:commandButton class="col-lg-6 btn btn-success" value="Cadastrar" action="#{usuarioMB.addUsuario()}"/>
+                            </h:panelGrid>
+                        </h:form>
+
+                    </div>
+                </div>
+
             </ui:define>
-             <ui:define name="bottom">
+            <ui:define name="bottom">
                 <nav class="hidden-xs navbar navbar-fixed-bottom">
                     <div class="container-fluid">
                         <div class="navbar-header pull-left">

@@ -21,6 +21,14 @@ public class Usuario {
     
     public Usuario() {
     }
+    
+     public void limparCampos(){
+        setNome("");
+        setTelefone("");
+        setEmail("");
+        setLogin("");
+        setSenha("");
+    }
 
     public String getNome() {
         return nome;

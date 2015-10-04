@@ -2,37 +2,109 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Projeto CRUD</title>
     </h:head>
     <h:body>
-        <h1>Página do Aluno</h1>
-        <h2>Dados Cadastrais</h2>
-        <h:form>
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Nome: "/>
-                <h:outputText value="#{loginMB.usuarioLogado.nome}" id="idUsuario"/>
-                <h:outputLabel value="Telefone: "/>
-                <h:outputText value="#{loginMB.usuarioLogado.telefone}" id="idTelefone"/>
-                <h:outputLabel value="E-mail: "/>
-                <h:outputText value="#{loginMB.usuarioLogado.email}" id="idEmail"/>
-                <h:outputLabel value="Login: "/>
-                <h:outputText value="#{loginMB.usuarioLogado.login}" id="idLogin"/>
-                <h:outputLabel value="Senha: "/>
-                <h:outputText value="#{loginMB.usuarioLogado.senha}" id="idSenha"/>
-                <h:outputLabel value="Sexo: "/>
-                <h:outputText value="#{loginMB.usuarioLogado.sexoString}" id="idSexo"/>
-                <h:outputLabel value="Estado: "/>
-                <h:outputText value="#{loginMB.usuarioLogado.estado}" id="idEstado"/>
-                <h:outputLabel value="Perfil: "/>
-                <h:outputText value="#{loginMB.usuarioLogado.tipoString}" id="idPerfil"/>
-            </h:panelGrid>
-            <br/><br/>
-            <h:commandButton value="Editar" action="#{usuarioMB.editarUsuario()}" />
-            <h:commandButton value="Cancelar Conta" action="#{usuarioMB.removerUsuario()}" />
-            <h:commandLink value="Logout" action="#{loginMB.realizaLogout()}"/>
-        </h:form>
+        <ui:composition template="/./template.xhtml">
+            
+            <ui:define name="top">
+                <nav class="navbar navbar-default bg-primary">
+
+                    <ul class="nav navbar-nav">
+
+                        <li class="nav-item active">
+                            <h:form>
+                                <h:commandLink action="paginaDoAluno">
+                                    <button type="button" class="btn btn-default" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                        Minha Conta
+                                    </button>
+                                </h:commandLink>
+                            </h:form>
+                        </li>
+
+                        <li class="nav-item">
+                            <h:form>
+                                <h:commandLink action="#{loginMB.realizaLogout()}">
+                                    <button type="button" class="btn btn-default" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                                        Logout
+                                    </button>
+                                </h:commandLink>
+                            </h:form>
+                        </li>
+
+
+
+                    </ul>
+                </nav>
+            </ui:define>
+            
+        <ui:define name="content">
+                <div class="container">
+
+
+
+                    <div class="well col-lg-3 col-offset-3" style="margin-left: 39%;">
+                        <h3>Aluno</h3>
+                        <h:form id="edicao">
+                            <h:panelGrid columns="2">
+                                <h:outputLabel value="Nome: "/>
+                                <h:inputText value="#{loginMB.usuarioLogado.nome}" id="idUsuario"  class="form-control"/>
+                                <h:outputLabel value="Telefone: "/>
+                                <h:inputText value="#{loginMB.usuarioLogado.telefone}" id="idTelefone"  class="form-control"/>
+                                <h:outputLabel value="E-mail: "/>
+                                <h:inputText value="#{loginMB.usuarioLogado.email}" id="idEmail"  class="form-control"/>
+                                <h:outputLabel value="Login: "/>
+                                <h:inputText value="#{loginMB.usuarioLogado.login}" id="idLogin"  class="form-control"/>
+                                <h:outputLabel value="Senha: "/>
+                                <h:inputSecret redisplay="true" required="true" value="#{loginMB.usuarioLogado.senha}" id="idSenha"  class="form-control"/>
+
+                                <h:outputLabel value="Sexo: "/>
+
+                                <h:selectOneRadio id="idSexo" value="#{loginMB.usuarioLogado.sexo}">
+                                    <f:selectItem itemLabel="Masculino" itemValue="1" />
+                                    <f:selectItem itemLabel="Feminino" itemValue="2" />
+                                </h:selectOneRadio>
+
+
+                                <h:outputLabel value="Estado: "/>
+                                <h:selectOneMenu id="idEstado" value="#{loginMB.usuarioLogado.estado}" class="form-control">
+                                    <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />
+                                    <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />
+                                    <f:selectItem itemLabel="Paraná" itemValue="PR" />
+                                    <f:selectItem itemLabel="São Paulo" itemValue="SP" />
+                                    <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />
+                                </h:selectOneMenu>
+
+                            </h:panelGrid>
+                            <br/><br/>
+
+                           
+                            <h:commandButton class="btn btn-primary" value="Salvar" action="#{usuarioMB.atualizarUsuario()}" />
+                            <h:commandButton class="btn btn-danger" value="Cancelar Conta" action="#{usuarioMB.removerUsuario()}" />
+
+                        </h:form>
+                    </div>
+                </div>
+            </ui:define> 
+        
+        <ui:define name="bottom">
+                <nav class="hidden-xs navbar navbar-fixed-bottom">
+                    <div class="container-fluid">
+                        <div class="navbar-header pull-left">
+                            <p style="color: #000;">© Todos os direitos reservados a Ricardo e Eduardo!</p>
+
+                        </div>
+                    </div>
+                </nav>
+            </ui:define>
+        
+        
+        </ui:composition>
     </h:body>
 </html>
 

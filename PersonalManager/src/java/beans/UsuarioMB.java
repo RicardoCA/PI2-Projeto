@@ -22,6 +22,8 @@ public class UsuarioMB {
         usuario = new Usuario();
         listaUsuarios = new ArrayList<Usuario>();
     }
+    
+   
 
     public Usuario getUsuario() {
         return usuario;
@@ -90,8 +92,11 @@ public class UsuarioMB {
         LoginMB loginMB = (LoginMB) contexto.getExternalContext().getSessionMap().get("loginMB");
         if (listaUsuarios.contains(loginMB.getUsuarioLogado())) {
             listaUsuarios.remove(loginMB.getUsuarioLogado());
+            loginMB.realizaLogout();
         }
         return ("/index?faces-redirect=true");
+        
+        
     }
 
     public String cadastrarUsuario() {
