@@ -71,11 +71,9 @@ public class LoginMB {
         contexto.addMessage(
                 "idMensagem", mensagem);
 
-        return ("index");
+        return ("/index");
     }
-    
-    
-
+        
     public String realizaLogout() {
         usuarioLogado = null;
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();

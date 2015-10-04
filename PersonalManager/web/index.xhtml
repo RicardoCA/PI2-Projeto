@@ -2,8 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <h:head>
         <title>Personal Manager</title>
@@ -32,30 +31,30 @@
                         <div class="well col-lg-4 col-offset-4">
                             <h3>Login</h3>
                             <h:form class="form-group">
-                                <p:outputLabel  value="Usuário: " for="idUsuario" />
-                                <p:inputText  class="form-control" id="idUsuario" value="#{loginMB.login}" />
-                                <p:outputLabel  value="Senha: " for="idSenha" />
-                                <h:inputSecret  class="form-control" id="idSenha" value="#{loginMB.senha}" />
+                                <h:outputLabel value="Usuário: " for="idUsuario" />
+                                <h:inputText class="form-control" id="idUsuario" value="#{loginMB.login}" />
+                                <h:outputLabel value="Senha: " for="idSenha" />
+                                <h:inputSecret class="form-control" id="idSenha" value="#{loginMB.senha}" />
                                 <br/>
-                                <p:commandButton class="btn btn-success" value="Logar" action="#{loginMB.verificaLogin()}" />
-                                
-                                <h:message for="idSenha" id="idMensagem" showDetail="true" errorClass="mensagem"/>
+                                <h:commandButton class="col-lg-6 btn btn-success" value="Logar" action="#{loginMB.verificaLogin()}" />
+                                <br/>
+                                <br/>
+                                <h:message for="idSenha" showDetail="true" errorClass="mensagem"/>
                             </h:form>
-
                         </div>
 
                         <div id="direita" class="well col-lg-4 col-offset-4">
                             <h3>Registro</h3>
                             <h:form class="form-group">
-                                <p:outputLabel  value="Email: " for="idEmail" />
-                                <p:inputText  class="form-control" id="idEmail" value="#{usuarioMB.usuario.email}" />
+                                <h:outputLabel value="Email: " for="idEmail" />
+                                <h:inputText class="form-control" id="idEmail" value="#{usuarioMB.usuario.email}" />
                                 <br/>
-                                <p:commandButton class="btn btn-default" value="Registrar" action="#{usuarioMB.cadastrar()}" />
-                               
+                                <h:commandButton class="col-lg-6 btn btn-success" value="Registrar" action="#{usuarioMB.cadastrarUsuario()}"/>
+                                <h:message for="idEmail" showDetail="true" errorClass="mensagem"/>
+                                <br/>
+                                <br/>
+                                
                             </h:form>
-                            
-                             <h:message for="idEmail" id="idEmailMensagem" showDetail="true" errorClass="mensagem"/>
-
                         </div>
                     </div>
                     <div id="clear"/>

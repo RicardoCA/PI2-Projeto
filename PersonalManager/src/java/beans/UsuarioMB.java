@@ -93,23 +93,21 @@ public class UsuarioMB {
         }
         return ("/index?faces-redirect=true");
     }
-    
-    
-    public String cadastrar(){
-        
-        if(!getUsuario().getEmail().equals("")){
+
+    public String cadastrarUsuario() {
+
+        if (!getUsuario().getEmail().equals("")) {
             return ("formulario_cadastro?faces-redirect=true");
+        } else {
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Digite um e-mail válido!", "Erro");
+
+            contexto.addMessage(
+                    "idEmailMensagem", mensagem);
+            return ("index");
         }
-        else{
-        
-        FacesContext contexto = FacesContext.getCurrentInstance();
-        FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                "Digite um email válido!", "Erro");
-        
-        contexto.addMessage(
-                "idEmailMensagem", mensagem);
-        return("index");
-        }
-        
+
     }
+
 }
