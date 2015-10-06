@@ -58,26 +58,26 @@
                         <h:form id="edicao">
                             <h:panelGrid columns="2">
                                 <h:outputLabel value="Nome: "/>
-                                <h:inputText value="#{loginMB.usuarioLogado.nome}" id="idUsuario"  class="form-control"/>
+                                <h:inputText value="#{loginMB.usuarioLogado.nome}" id="idUsuario"  class="form-control" required="true"/>
                                 <h:outputLabel value="Telefone: "/>
-                                <h:inputText value="#{loginMB.usuarioLogado.telefone}" id="idTelefone"  class="form-control"/>
+                                <h:inputText value="#{loginMB.usuarioLogado.telefone}" required="true" id="idTelefone"  class="form-control"/>
                                 <h:outputLabel value="E-mail: "/>
-                                <h:inputText value="#{loginMB.usuarioLogado.email}" id="idEmail"  class="form-control"/>
+                                <h:inputText value="#{loginMB.usuarioLogado.email}" id="idEmail" required="true" class="form-control"/>
                                 <h:outputLabel value="Login: "/>
-                                <h:inputText value="#{loginMB.usuarioLogado.login}" id="idLogin"  class="form-control"/>
+                                <h:inputText value="#{loginMB.usuarioLogado.login}" id="idLogin" required="true" class="form-control"/>
                                 <h:outputLabel value="Senha: "/>
                                 <h:inputSecret redisplay="true" required="true" value="#{loginMB.usuarioLogado.senha}" id="idSenha"  class="form-control"/>
 
                                 <h:outputLabel value="Sexo: "/>
 
-                                <h:selectOneRadio id="idSexo" value="#{loginMB.usuarioLogado.sexo}">
+                                <h:selectOneRadio id="idSexo" value="#{loginMB.usuarioLogado.sexo}" required="true">
                                     <f:selectItem itemLabel="Masculino" itemValue="1" />
                                     <f:selectItem itemLabel="Feminino" itemValue="2" />
                                 </h:selectOneRadio>
 
 
                                 <h:outputLabel value="Estado: "/>
-                                <h:selectOneMenu id="idEstado" value="#{loginMB.usuarioLogado.estado}" class="form-control">
+                                <h:selectOneMenu id="idEstado" value="#{loginMB.usuarioLogado.estado}" required="true" class="form-control">
                                     <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />
                                     <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />
                                     <f:selectItem itemLabel="Paraná" itemValue="PR" />
