@@ -30,6 +30,17 @@
                                 </h:commandLink>
                             </h:form>
                         </li>
+                        
+                         <li class="nav-item">
+                            <h:form>
+                                <h:commandLink action="/formulario_aula?faces-redirect=true">
+                                    <button type="button" class="btn btn-default" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                                        Criar Aula
+                                    </button>
+                                </h:commandLink>
+                            </h:form>
+                        </li>
 
                         <li class="nav-item">
                             <h:form>
@@ -84,7 +95,19 @@
                                     <f:selectItem itemLabel="São Paulo" itemValue="SP" />
                                     <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />
                                 </h:selectOneMenu>
-
+                                
+                                 <h:outputLabel for="idAluno" value="Aluno:" />
+                                <h:selectOneMenu id="idAluno"  class="form-control">
+                                    <f:selectItem itemLabel="Selecione..." itemValue="00" />
+                                    <f:selectItem itemLabel="Marcelo" itemValue="01" />
+                                    <f:selectItem itemLabel="Fernanda" itemValue="02" />
+                                    <f:selectItem itemLabel="Luiza" itemValue="03" />
+                                    <f:selectItem itemLabel="Juliano" itemValue="04" />
+                                    <f:selectItem itemLabel="Rodrigo" itemValue="05" />
+                                </h:selectOneMenu>
+                                
+                                
+                                
                             </h:panelGrid>
                             <br/><br/>
 

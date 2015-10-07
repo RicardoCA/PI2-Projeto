@@ -17,10 +17,36 @@ public class UsuarioMB {
     private Usuario usuarioAux;
     private List<Usuario> listaUsuarios;
     private int indice;
+    
+    
+    
+    
+    //
+    private List<Usuario> listaProfessores = new ArrayList<Usuario>();
+    private List<Usuario> listaAlunos = new ArrayList<Usuario>();
+    //
 
     public UsuarioMB() {
+        
+        
+        
+        
         usuario = new Usuario();
         listaUsuarios = new ArrayList<Usuario>();
+    }
+    
+    
+    public void povoarListas(){
+        for(int i = 0; i < listaUsuarios.size(); i++){
+            if(listaUsuarios.get(i) != null){
+                if(listaUsuarios.get(i).getTipo() == 1){
+                    listaProfessores.add(listaUsuarios.get(i));
+                }
+                else{
+                    listaAlunos.add(listaUsuarios.get(i));
+                }
+            }
+        }
     }
     
    

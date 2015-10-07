@@ -5,20 +5,14 @@ import java.util.List;
 
 public class Professor extends Usuario{
     
-    private List<Aluno> listaAlunos = new ArrayList<Aluno>();
+    
     private double valorAula;
     private String registroProfissional;
 
     public Professor() {
     }
 
-    public List<Aluno> getListaAlunos() {
-        return listaAlunos;
-    }
-
-    public void setListaAlunos(List<Aluno> listaAlunos) {
-        this.listaAlunos = listaAlunos;
-    }
+   
 
     public double getValorAula() {
         return valorAula;
