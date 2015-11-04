@@ -1,12 +1,26 @@
 package models;
 
-public class Usuario {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Usuario implements Serializable{
+    
+    public static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    
+    
     public final static int MASCULINO = 1;
     public final static int FEMININO = 2;
     
     public final static int PROFESSOR = 1;
     public final static int ALUNO = 2;
-    
     
     private String nome;
     private String telefone;
@@ -20,7 +34,22 @@ public class Usuario {
    
     
     public Usuario() {
+        
     }
+    
+    public Usuario(long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    
     
      public void limparCampos(){
         setNome("");

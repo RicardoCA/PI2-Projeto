@@ -1,16 +1,18 @@
 package beans;
 
+import dao.UsuarioDao;
+import dao.UsuarioDaoJpa;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import models.*;
 
 @ManagedBean
-@ApplicationScoped
+@SessionScoped
 public class UsuarioMB {
 
     private Usuario usuario;
@@ -68,15 +70,17 @@ public class UsuarioMB {
     }
 
     public String addUsuario() {
+        UsuarioDao usuarioJPA = new UsuarioDaoJpa();
+        usuarioJPA.salvar(usuario);
+        
         listaUsuarios.add(usuario);
         usuarioAux = usuario;
         this.usuario = new Usuario();
         FacesContext contexto = FacesContext.getCurrentInstance();
-        LoginMB loginMB = (LoginMB) contexto.getExternalContext().getSessionMap().get("loginMB");
-        //LoginMB loginMB = new LoginMB();
-        loginMB.setLogin(usuarioAux.getLogin());
-        loginMB.setSenha(usuarioAux.getSenha());
-        return loginMB.verificaLogin();
+        //LoginMB loginMB = (LoginMB) contexto.getExternalContext().getSessionMap().get("loginMB");
+        //loginMB.setLogin(usuarioAux.getLogin());
+        //loginMB.setSenha(usuarioAux.getSenha());
+        return ("index?faces-redirect=true");/*loginMB.verificaLogin();*/
         /*if (usuarioAux.getTipo() == 1) {
          return ("/professor/paginaDoProfessor?faces-redirect=true"); //para Repeat, altere para usuariosRepeat
          } else {
