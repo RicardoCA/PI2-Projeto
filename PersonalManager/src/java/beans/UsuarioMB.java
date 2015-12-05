@@ -48,6 +48,12 @@ public class UsuarioMB {
         this.listaAlunos = usuarioJPA.listarAlunos();
         return this.listaAlunos;
     }
+    
+    public List<Usuario> getProfessores(){
+        UsuarioDao usuarioJPA = new UsuarioDaoJpa();
+        this.listaProfessores = usuarioJPA.listarProfessores();
+        return this.listaProfessores;
+    }
 
     public Usuario getUsuario() {
         return usuario;
