@@ -3,6 +3,7 @@
   <persistence-unit name="PersonalManagerPU" transaction-type="RESOURCE_LOCAL">
     <class>models.Usuario</class>
     <class>models.Aula</class>
+    <class>models.Modalidade</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/personalmanager"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

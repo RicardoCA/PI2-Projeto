@@ -65,8 +65,11 @@ public class LoginMB {
                 usuarioLogado = usuario;
                 if (usuario.getTipo() == 1) {
                     return ("/professor/paginaDoProfessor?faces-redirect=true");
-                } else {
+                } else if(usuario.getTipo() == 2){
                     return ("/aluno/paginaDoAluno?faces-redirect=true");
+                }
+                else if(usuario.getTipo() == 3){
+                    return ("/admin/paginaDoAdmin?faces-redirect=true");
                 }
             }
         }

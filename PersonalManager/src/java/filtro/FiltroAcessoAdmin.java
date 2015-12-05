@@ -13,30 +13,25 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebFilter(filterName = "FiltroLogin", urlPatterns = {"/faces/index.xhtml"})
-public class FiltroLogin implements Filter {
+/**
+ *
+ * @author lhries
+ */
+@WebFilter(filterName = "FiltroAcessoAdmin", urlPatterns = {"/faces/admin/*"})
+public class FiltroAcessoAdmin implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-        System.out.println("Verificando login!");
+        System.out.println("Verificando acesso do usuario!");
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         LoginMB auth = (LoginMB) req.getSession().getAttribute("loginMB");
-        if(auth!=null && auth.estaLogado()){
-            if(auth.getUsuarioLogado().getTipo() == 1)
-                resp.sendRedirect(req.getContextPath()+"/faces/professor/paginaDoProfessor.xhtml");
-            else if(auth.getUsuarioLogado().getTipo() == 2){
-                resp.sendRedirect(req.getContextPath()+"/faces/aluno/paginaDoAluno.xhtml");
-            }
-            else if(auth.getUsuarioLogado().getTipo() == 3){
-                resp.sendRedirect(req.getContextPath()+"/faces/admin/paginaDoAdmin.xhtml");
-            }    
-        }            
-        else
+        if(auth!=null && auth.estaLogado() && auth.getUsuarioLogado().getTipo() == 3)
             chain.doFilter(request, response);
+        else
+            resp.sendRedirect(req.getContextPath()+"/faces/index.xhtml");
     }
 
     @Override

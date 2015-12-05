@@ -6,13 +6,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Projeto CRUD</title>
-
-
-
-
     </h:head>
     <h:body>
-
         <ui:composition template="/./template.xhtml">
 
             <ui:define name="top">
@@ -22,21 +17,10 @@
 
                         <li class="nav-item active">
                             <h:form>
-                                <h:commandLink action="paginaDoProfessor">
+                                <h:commandLink action="paginaDoAluno">
                                     <button type="button" class="btn btn-default" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                         Minha Conta
-                                    </button>
-                                </h:commandLink>
-                            </h:form>
-                        </li>
-
-                        <li class="nav-item">
-                            <h:form>
-                                <h:commandLink action="/formulario_aula?faces-redirect=true">
-                                    <button type="button" class="btn btn-default" aria-label="Left Align">
-                                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-                                        Criar Aula
                                     </button>
                                 </h:commandLink>
                             </h:form>
@@ -65,54 +49,46 @@
 
 
                     <div class="well col-lg-3 col-offset-3" style="margin-left: 39%;">
-                        <h3>Professor</h3>
+                        <h3>Admin</h3>
                         <h:form id="edicao">
                             <h:panelGrid columns="2">
                                 <h:outputLabel value="Nome: "/>
-                                <h:inputText value="#{loginMB.usuarioLogado.nome}" id="idUsuario"  class="form-control" required="true"/>
+                                <h:inputText value="#{loginMB.usuarioLogado.nome}" required="true" id="idUsuario"  class="form-control"/>
                                 <h:outputLabel value="Telefone: "/>
                                 <h:inputText value="#{loginMB.usuarioLogado.telefone}" required="true" id="idTelefone"  class="form-control"/>
                                 <h:outputLabel value="E-mail: "/>
-                                <h:inputText value="#{loginMB.usuarioLogado.email}" id="idEmail" required="true" class="form-control"/>
-
-                                <h:outputLabel for="disciplinaTxt" value="Disciplina:"/>
-                                <h:inputText id="disciplinaTxt" class="form-control" value="" />
-
+                                <h:inputText value="#{loginMB.usuarioLogado.email}" id="idEmail"  class="form-control" required="true"/>
                                 <h:outputLabel value="Login: "/>
-                                <h:inputText value="#{loginMB.usuarioLogado.login}" id="idLogin" required="true" class="form-control"/>
+                                <h:inputText value="#{loginMB.usuarioLogado.login}" id="idLogin"  class="form-control" required="true"/>
                                 <h:outputLabel value="Senha: "/>
                                 <h:inputSecret redisplay="true" required="true" value="#{loginMB.usuarioLogado.senha}" id="idSenha"  class="form-control"/>
 
-                                <h:outputLabel value="Sexo: "/>
+                                <h:outputLabel value="Usuarios: "/>
+                                <h:link outcome="visualizarUsuarios" value="Visualizar"/>
+                                
+                                <h:outputLabel value="Modalidades: "/>
+                                <h:link outcome="visualizarModalidades?faces-redirect=true" value="Visualizar"/>
 
-                                <h:selectOneRadio id="idSexo" value="#{loginMB.usuarioLogado.sexo}" required="true">
-                                    <f:selectItem itemLabel="Masculino" itemValue="1" />
-                                    <f:selectItem itemLabel="Feminino" itemValue="2" />
-                                </h:selectOneRadio>
 
 
-                                <h:outputLabel value="Estado: "/>
-                                <h:selectOneMenu id="idEstado" value="#{loginMB.usuarioLogado.estado}" required="true" class="form-control">
-                                    <f:selectItem itemLabel="Rio Grande do Sul" itemValue="RS" />
-                                    <f:selectItem itemLabel="Santa Catarina" itemValue="SC" />
-                                    <f:selectItem itemLabel="Paraná" itemValue="PR" />
-                                    <f:selectItem itemLabel="São Paulo" itemValue="SP" />
-                                    <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />
-                                </h:selectOneMenu>
 
-                                <h:outputLabel for="idModalidade" value="Modalidade:" />
-                                <h:selectOneMenu id="idModalidade"  class="form-control">
-                                    <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                                    <f:selectItems value="#{usuarioMB.getAlunos()}" var="aluno" itemLabel="#{aluno.getNome()}" itemValue="#{aluno.getId()}"/>
+                                <!--<h:selectOneMenu id="idProfessor"  class="form-control">
+                                    <f:selectItem itemLabel="Selecione..." itemValue="00" />
+                                    <f:selectItem itemLabel="Bruno" itemValue="01" />
+                                    <f:selectItem itemLabel="João" itemValue="02" />
+                                    <f:selectItem itemLabel="Pedro" itemValue="03" />
+                                    <f:selectItem itemLabel="Daniela" itemValue="04" />
+                                    <f:selectItem itemLabel="Juliana" itemValue="05" />
+                                </h:selectOneMenu>-->
 
-                                </h:selectOneMenu>
 
 
 
                             </h:panelGrid>
                             <br/><br/>
-
-
+                            
+                            
+                            
                             <h:commandButton class="btn btn-primary" value="Salvar" action="#{usuarioMB.atualizarUsuario()}" />
                             <h:commandButton class="btn btn-danger" value="Cancelar Conta" action="#{usuarioMB.removerUsuario()}" />
 
@@ -120,8 +96,6 @@
                     </div>
                 </div>
             </ui:define> 
-
-
 
             <ui:define name="bottom">
                 <nav class="hidden-xs navbar navbar-fixed-bottom">
@@ -133,6 +107,7 @@
                     </div>
                 </nav>
             </ui:define>
+
 
         </ui:composition>
     </h:body>

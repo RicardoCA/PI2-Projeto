@@ -42,14 +42,14 @@ public class UsuarioMB {
             }
         }
     }
-    
-    public List<Usuario> getAlunos(){
+
+    public List<Usuario> getAlunos() {
         UsuarioDao usuarioJPA = new UsuarioDaoJpa();
         this.listaAlunos = usuarioJPA.listarAlunos();
         return this.listaAlunos;
     }
-    
-    public List<Usuario> getProfessores(){
+
+    public List<Usuario> getProfessores() {
         UsuarioDao usuarioJPA = new UsuarioDaoJpa();
         this.listaProfessores = usuarioJPA.listarProfessores();
         return this.listaProfessores;
@@ -131,14 +131,22 @@ public class UsuarioMB {
 
         FacesContext contexto = FacesContext.getCurrentInstance();
         LoginMB loginMB = (LoginMB) contexto.getExternalContext().getSessionMap().get("loginMB");
-        
+
         if (loginMB.getUsuarioLogado() != null) {
-            usuarioBD.remover(loginMB.getUsuarioLogado());            
+            usuarioBD.remover(loginMB.getUsuarioLogado());
             loginMB.realizaLogout();
         }
-       
+
         return ("/index?faces-redirect=true");
 
+    }
+
+    public String delete(Usuario u){
+        UsuarioDao usuarioBD = new UsuarioDaoJpa();
+        usuarioBD.remover(u);
+        
+        
+        return null;
     }
 
     public String cadastrarUsuario() {
@@ -155,6 +163,11 @@ public class UsuarioMB {
             return ("index");
         }
 
+    }
+
+    public List<Usuario> retornaUsuarios() {
+        UsuarioDao usuarioBD = new UsuarioDaoJpa();
+        return usuarioBD.listar();
     }
 
 }

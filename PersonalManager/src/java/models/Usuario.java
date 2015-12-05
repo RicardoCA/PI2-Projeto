@@ -21,6 +21,7 @@ public class Usuario implements Serializable{
     
     public final static int PROFESSOR = 1;
     public final static int ALUNO = 2;
+    public final static int ADMIN = 3;
     
     private String nome;
     private String telefone;
@@ -114,8 +115,18 @@ public class Usuario implements Serializable{
     }
     
     public String getTipoString() {
-        if(tipo==1) return "Professor";
-        else return "Aluno";
+        if(tipo==1){
+            return "Professor";
+        }
+        else if(tipo == 2){
+            return "Aluno";
+        }
+        else if(tipo == 3){
+            return "Admin";
+        }
+        else{
+            return "";
+        }
     }
 
     public void setSexo(int sexo) {

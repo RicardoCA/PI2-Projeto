@@ -7,10 +7,13 @@ public class Professor extends Usuario{
     
     
     private double valorAula;
-    private String disciplina;
+    
     private String registroProfissional;
+    
+    Modalidade modalidade;
 
     public Professor() {
+        this.modalidade = new Modalidade();
     }
 
    
@@ -31,14 +34,7 @@ public class Professor extends Usuario{
         this.registroProfissional = registroProfissional;
     }
 
-    public String getDisciplina() {
-        return disciplina;
-    }
-
-    public void setDisciplina(String disciplina) {
-        this.disciplina = disciplina;
-    }
-    
+   
     
     
     
