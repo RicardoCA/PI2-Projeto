@@ -19,39 +19,35 @@ public class UsuarioMB {
     private Usuario usuarioAux;
     private List<Usuario> listaUsuarios;
     private int indice;
-    
-    
-    
-    
+
     //
     private List<Usuario> listaProfessores = new ArrayList<Usuario>();
     private List<Usuario> listaAlunos = new ArrayList<Usuario>();
     //
 
     public UsuarioMB() {
-        
-        
-        
-        
+
         usuario = new Usuario();
         listaUsuarios = new ArrayList<Usuario>();
     }
-    
-    
-    public void povoarListas(){
-        for(int i = 0; i < listaUsuarios.size(); i++){
-            if(listaUsuarios.get(i) != null){
-                if(listaUsuarios.get(i).getTipo() == 1){
+
+    public void povoarListas() {
+        for (int i = 0; i < listaUsuarios.size(); i++) {
+            if (listaUsuarios.get(i) != null) {
+                if (listaUsuarios.get(i).getTipo() == 1) {
                     listaProfessores.add(listaUsuarios.get(i));
-                }
-                else{
+                } else {
                     listaAlunos.add(listaUsuarios.get(i));
                 }
             }
         }
     }
     
-   
+    public List<Usuario> getAlunos(){
+        UsuarioDao usuarioJPA = new UsuarioDaoJpa();
+        this.listaAlunos = usuarioJPA.listarAlunos();
+        return this.listaAlunos;
+    }
 
     public Usuario getUsuario() {
         return usuario;
@@ -72,7 +68,7 @@ public class UsuarioMB {
     public String addUsuario() {
         UsuarioDao usuarioJPA = new UsuarioDaoJpa();
         usuarioJPA.salvar(usuario);
-        
+
         listaUsuarios.add(usuario);
         usuarioAux = usuario;
         this.usuario = new Usuario();
@@ -86,6 +82,7 @@ public class UsuarioMB {
          } else {
          return ("/aluno/paginaDoAluno?faces-redirect=true"); //para Repeat, altere para usuariosRepeat
          }*/
+
     }
 
     public String editarUsuario() {
@@ -107,10 +104,16 @@ public class UsuarioMB {
     }
 
     public String atualizarUsuario() {
+        UsuarioDao usuarioBD = new UsuarioDaoJpa();
+
         FacesContext contexto = FacesContext.getCurrentInstance();
         LoginMB loginMB = (LoginMB) contexto.getExternalContext().getSessionMap().get("loginMB");
-        listaUsuarios.set(indice, loginMB.getUsuarioLogado());
-        if (usuarioAux.getTipo() == 1) {
+        //listaUsuarios = usuarioBD.listar();
+        //listaUsuarios.set(indice, loginMB.getUsuarioLogado());
+
+        usuarioBD.salvar(loginMB.getUsuarioLogado());
+
+        if (loginMB.getUsuarioLogado().getTipo() == 1) {
             return ("/professor/paginaDoProfessor?faces-redirect=true");
         } else {
             return ("/aluno/paginaDoAluno?faces-redirect=true");
@@ -118,15 +121,18 @@ public class UsuarioMB {
     }
 
     public String removerUsuario() {
+        UsuarioDao usuarioBD = new UsuarioDaoJpa();
+
         FacesContext contexto = FacesContext.getCurrentInstance();
         LoginMB loginMB = (LoginMB) contexto.getExternalContext().getSessionMap().get("loginMB");
-        if (listaUsuarios.contains(loginMB.getUsuarioLogado())) {
-            listaUsuarios.remove(loginMB.getUsuarioLogado());
+        
+        if (loginMB.getUsuarioLogado() != null) {
+            usuarioBD.remover(loginMB.getUsuarioLogado());            
             loginMB.realizaLogout();
         }
+       
         return ("/index?faces-redirect=true");
-        
-        
+
     }
 
     public String cadastrarUsuario() {

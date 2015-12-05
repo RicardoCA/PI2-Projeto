@@ -17,4 +17,5 @@ public interface UsuarioDao {
     public void salvar(Usuario u);
     public Usuario buscarPorId(Long id);
     public List<Usuario> listar();   
+    public List<Usuario> listarAlunos();
 }

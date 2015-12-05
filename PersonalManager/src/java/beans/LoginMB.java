@@ -1,5 +1,8 @@
 package beans;
 
+import dao.UsuarioDao;
+import dao.UsuarioDaoJpa;
+import java.util.ArrayList;
 import models.*;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -46,12 +49,15 @@ public class LoginMB {
      return (this.estaLogado() && this.getUsuarioLogado().isAdmin());
      }*/
     public String verificaLogin() {
+        UsuarioDao usuarioBD = new UsuarioDaoJpa();
+        
         //Pega o contexto do JSF - serve agora e depois para mensagem.
         FacesContext contexto = FacesContext.getCurrentInstance();
         //Obt�m o usuarioMB criado pelo servidor (n�vel de aplica��o)
         UsuarioMB usuarioMB = (UsuarioMB) contexto.getExternalContext().getApplicationMap().get("usuarioMB");
         //A partir do usuarioMB do servidor, pegamos a lista de usu�rios cadastrados no sistema
-        List<Usuario> listaUsuarios = usuarioMB.getListaUsuarios();
+        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        listaUsuarios = usuarioBD.listar();
 
         for (Usuario usuario : listaUsuarios) {
 

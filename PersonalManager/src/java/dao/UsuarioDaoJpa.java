@@ -46,11 +46,22 @@ public class UsuarioDaoJpa implements UsuarioDao{
         em.close();
         return (usuario);
     }
+    
+    
 
     @Override
     public List<Usuario> listar() {
         EntityManager em = JpaUtil.getEntityManager();
         List<Usuario> listaUsuarios = em.createQuery("SELECT u FROM Usuario u").getResultList();
+        em.close();
+        return (listaUsuarios);
+    }
+    
+    
+     @Override
+    public List<Usuario> listarAlunos() {
+        EntityManager em = JpaUtil.getEntityManager();
+        List<Usuario> listaUsuarios = em.createQuery("SELECT u FROM Usuario u WHERE u.tipo = 2").getResultList();
         em.close();
         return (listaUsuarios);
     }
