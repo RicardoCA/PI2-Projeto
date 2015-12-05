@@ -31,6 +31,10 @@ public class Usuario implements Serializable{
     private String estado;
     private int tipo;
     
+    
+    
+    
+    
    
     
     public Usuario() {
@@ -58,6 +62,15 @@ public class Usuario implements Serializable{
         setLogin("");
         setSenha("");
     }
+     
+     public boolean retornaTipoBoolean(){
+         if(this.tipo == 1){
+             return true;
+         }
+         else{
+             return false;
+         }
+     }
 
     public String getNome() {
         return nome;
