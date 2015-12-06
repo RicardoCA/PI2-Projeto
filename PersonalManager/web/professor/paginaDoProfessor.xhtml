@@ -75,8 +75,7 @@
                                 <h:outputLabel value="E-mail: "/>
                                 <h:inputText value="#{loginMB.usuarioLogado.email}" id="idEmail" required="true" class="form-control"/>
 
-                                <h:outputLabel for="disciplinaTxt" value="Disciplina:"/>
-                                <h:inputText id="disciplinaTxt" class="form-control" value="" />
+                                
 
                                 <h:outputLabel value="Login: "/>
                                 <h:inputText value="#{loginMB.usuarioLogado.login}" id="idLogin" required="true" class="form-control"/>
@@ -101,10 +100,9 @@
                                 </h:selectOneMenu>
 
                                 <h:outputLabel for="idModalidade" value="Modalidade:" />
-                                <h:selectOneMenu id="idModalidade"  class="form-control">
+                                <h:selectOneMenu id="idModalidade"  class="form-control" >
                                     <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                                    <f:selectItems value="#{usuarioMB.getAlunos()}" var="aluno" itemLabel="#{aluno.getNome()}" itemValue="#{aluno.getId()}"/>
-
+                                    <f:selectItems value="#{modalidadeMB.getModalidades()}" var="modalidade" itemLabel="#{modalidade.getNome()}" itemValue="#{modalidade.getId()}"/>
                                 </h:selectOneMenu>
 
 
