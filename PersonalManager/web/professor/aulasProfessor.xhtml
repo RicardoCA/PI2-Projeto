@@ -20,7 +20,7 @@
 
                         <li class="nav-item active">
                             <h:form>
-                                <h:commandLink action="paginaDoAluno">
+                                <h:commandLink action="paginaDoProfessor">
                                     <button type="button" class="btn btn-default" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                         Minha Conta
@@ -72,13 +72,18 @@
                             <f:facet name="header">Modalidade</f:facet>
                                 #{aula.modalidade}
                         </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">Preço</f:facet>
+                                #{loginMB.usuarioLogado.valor}
+                        </h:column>
 
                         <h:column>
                             <f:facet name="header">Aluno</f:facet>
                                 #{aula.nomeAluno}
                         </h:column>
 
-                        <h:column>
+                        <!--<h:column>
                             <f:facet name="header">Dia</f:facet>
                                 #{aula.dia}
                         </h:column>
@@ -86,7 +91,7 @@
                         <h:column>
                             <f:facet name="header">Hora</f:facet>
                                 #{aula.hora}
-                        </h:column>
+                        </h:column>-->
 
                            
 

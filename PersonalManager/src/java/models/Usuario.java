@@ -32,8 +32,9 @@ public class Usuario implements Serializable{
     private String estado;
     private int tipo;
     
-    private String modalidade;
     
+    private String modalidade;
+    private String valor;
     
     
     
@@ -54,6 +55,16 @@ public class Usuario implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+    
+    
     
     
     

@@ -95,6 +95,9 @@
                                     <f:selectItem itemLabel="Selecione..." itemValue=""/>
                                     <f:selectItems value="#{modalidadeMB.getModalidades()}" var="modalidade" itemLabel="#{modalidade.getNome()}" itemValue="#{modalidade.getNome()}"/>
                                 </h:selectOneMenu>
+                                
+                                <h:outputLabel value="Preço: " for="precoTxt" />
+                                <h:inputText class="form-control" value="#{loginMB.usuarioLogado.valor}" id="precoTxt" /> 
 
                                 <h:outputLabel for="idProfessor" value="Aulas:" />
 
