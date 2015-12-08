@@ -32,6 +32,7 @@ public class Usuario implements Serializable{
     private String estado;
     private int tipo;
     
+    private int idModalidade;
     
     
     
@@ -72,6 +73,16 @@ public class Usuario implements Serializable{
              return false;
          }
      }
+
+    public int getIdModalidade() {
+        return idModalidade;
+    }
+
+    public void setIdModalidade(int modalidade) {
+        this.idModalidade = modalidade;
+    }
+     
+     
 
     public String getNome() {
         return nome;

@@ -24,11 +24,15 @@ public class UsuarioMB {
     private List<Usuario> listaProfessores = new ArrayList<Usuario>();
     private List<Usuario> listaAlunos = new ArrayList<Usuario>();
     //
+    
+    
 
     public UsuarioMB() {
 
         usuario = new Usuario();
         listaUsuarios = new ArrayList<Usuario>();
+        
+        
     }
 
     public void povoarListas() {
