@@ -31,16 +31,7 @@
                             </h:form>
                         </li>
 
-                        <li class="nav-item">
-                            <h:form>
-                                <h:commandLink action="/formulario_aula?faces-redirect=true">
-                                    <button type="button" class="btn btn-default" aria-label="Left Align">
-                                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-                                        Criar Aula
-                                    </button>
-                                </h:commandLink>
-                            </h:form>
-                        </li>
+                        
 
                         <li class="nav-item">
                             <h:form>
@@ -105,11 +96,11 @@
                                     <f:selectItems value="#{modalidadeMB.getModalidades()}" var="modalidade" itemLabel="#{modalidade.getNome()}" itemValue="#{modalidade.getNome()}"/>
                                 </h:selectOneMenu>
 
-
+                                <h:outputLabel for="idProfessor" value="Aulas:" />
 
                             </h:panelGrid>
-                            <br/><br/>
-
+                            <h:link value="Minhas Aulas" outcome="aulasProfessor?faces-redirect=true" /><br/><br/>
+                            
 
                             <h:commandButton class="btn btn-primary" value="Salvar" action="#{usuarioMB.atualizarUsuario()}" />
                             <h:commandButton class="btn btn-danger" value="Cancelar Conta" action="#{usuarioMB.removerUsuario()}" />

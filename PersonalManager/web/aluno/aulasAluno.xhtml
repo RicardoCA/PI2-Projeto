@@ -62,43 +62,40 @@
                         </h:form>
                     </h:panelGroup>-->
 
-                    <h:dataTable var="professor" value="#{usuarioMB.getProfessores()}" class="table table-hover" border="1">
+                    <h:dataTable var="aula" value="#{aulaMB.getAulasAluno()}" class="table table-hover" border="1">
                         <h:column>
                             <f:facet name="header">ID</f:facet>
-                                #{professor.id}
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header">Nome</f:facet>
-                                #{professor.nome}
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header">Sexo</f:facet>
-                                #{professor.sexoString}
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header">Email</f:facet>
-                                #{professor.email}
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header">Telefone</f:facet>
-                                #{professor.telefone}
+                                #{aula.id}
                         </h:column>
 
                         <h:column>
                             <f:facet name="header">Modalidade</f:facet>
-                            #{professor.modalidade}
+                                #{aula.modalidade}
                         </h:column>
 
                         <h:column>
+                            <f:facet name="header">Professor</f:facet>
+                                #{aula.nomeProfessor}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Dia</f:facet>
+                                #{aula.dia}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Hora</f:facet>
+                                #{aula.hora}
+                        </h:column>
+
+                           
+
+                        <h:column>
                             <f:facet name="header">Opções</f:facet>
-                            <h:commandLink action="#{aulaMB.addAula(professor)}">
-                                <button type="button" class="btn btn-success" aria-label="Left Align">
+                            <h:commandLink action="#{aulaMB.delete(aula)}">
+                                <button type="button" class="btn btn-danger" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                    Agendar
+                                    Cancelar
                                 </button>
                             </h:commandLink>
                         </h:column>

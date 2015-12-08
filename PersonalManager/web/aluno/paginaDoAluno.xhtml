@@ -9,7 +9,7 @@
     </h:head>
     <h:body>
         <ui:composition template="/./template.xhtml">
-            
+
             <ui:define name="top">
                 <nav class="navbar navbar-default bg-primary">
 
@@ -42,8 +42,8 @@
                     </ul>
                 </nav>
             </ui:define>
-            
-        <ui:define name="content">
+
+            <ui:define name="content">
                 <div class="container">
 
 
@@ -79,11 +79,12 @@
                                     <f:selectItem itemLabel="São Paulo" itemValue="SP" />
                                     <f:selectItem itemLabel="Rio de Janeiro" itemValue="RJ" />
                                 </h:selectOneMenu>
-                                
-                                
-                                
+
+
+
                                 <h:outputLabel for="idProfessor" value="Aulas:" />
-                                <h:link value="Visualizar Professores" outcome="buscarProfessor?faces-redirect=true" />
+
+                                
                                 <!--<h:selectOneMenu id="idProfessor"  class="form-control">
                                     <f:selectItem itemLabel="Selecione..." itemValue="00" />
                                     <f:selectItem itemLabel="Bruno" itemValue="01" />
@@ -92,14 +93,15 @@
                                     <f:selectItem itemLabel="Daniela" itemValue="04" />
                                     <f:selectItem itemLabel="Juliana" itemValue="05" />
                                 </h:selectOneMenu>-->
-                                
-                                
-                                
+
+
+
 
                             </h:panelGrid>
-                            <br/><br/>
 
-                           
+                            <h:link value="Minhas Aulas" outcome="aulasAluno?faces-redirect=true" /><br/>
+                            <h:link value="Visualizar Professores" outcome="buscarProfessor?faces-redirect=true" /><br/><br/>
+
                             <h:commandButton class="btn btn-primary" value="Salvar" action="#{usuarioMB.atualizarUsuario()}" />
                             <h:commandButton class="btn btn-danger" value="Cancelar Conta" action="#{usuarioMB.removerUsuario()}" />
 
@@ -107,8 +109,8 @@
                     </div>
                 </div>
             </ui:define> 
-        
-        <ui:define name="bottom">
+
+            <ui:define name="bottom">
                 <nav class="hidden-xs navbar navbar-fixed-bottom">
                     <div class="container-fluid">
                         <div class="navbar-header pull-left">
@@ -118,8 +120,8 @@
                     </div>
                 </nav>
             </ui:define>
-        
-        
+
+
         </ui:composition>
     </h:body>
 </html>

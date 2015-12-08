@@ -19,7 +19,9 @@ public class UsuarioMB {
     private Usuario usuarioAux;
     private List<Usuario> listaUsuarios;
     private int indice;
-
+    
+    
+    
     //
     private List<Usuario> listaProfessores = new ArrayList<Usuario>();
     private List<Usuario> listaAlunos = new ArrayList<Usuario>();
@@ -34,6 +36,10 @@ public class UsuarioMB {
         
         
     }
+
+    
+    
+    
 
     public void povoarListas() {
         for (int i = 0; i < listaUsuarios.size(); i++) {

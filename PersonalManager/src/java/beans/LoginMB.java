@@ -63,6 +63,7 @@ public class LoginMB {
 
             if (usuario.verificaLogin(login, senha)) {
                 usuarioLogado = usuario;
+               
                 if (usuario.getTipo() == 1) {
                     return ("/professor/paginaDoProfessor?faces-redirect=true");
                 } else if(usuario.getTipo() == 2){
@@ -88,5 +89,7 @@ public class LoginMB {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return ("/index?faces-redirect=true");
     }
+    
+    
 
 }

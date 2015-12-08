@@ -8,6 +8,7 @@ package models;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +17,7 @@ import javax.persistence.Id;
  *
  * @author Ricardo
  */
+@Entity
 public class Aula implements Serializable {
 
     public static final long serialVersionUID = 1L;
@@ -26,12 +28,15 @@ public class Aula implements Serializable {
 
     private String dia;
     private String hora;
-    private String valor;
+   
 
-    private List<Integer> listaIdAlunos = new ArrayList();
-    private int idProfessor;
-    private int idModalidade;
-
+    private String nomeAluno;
+    private String nomeProfessor;
+    
+    private String modalidade;
+    
+    
+    
     /*public Aula(String dia, String hora, Aluno aluno, Professor professor, String valor){
      this.dia = dia;
      this.hora = hora;
@@ -43,13 +48,15 @@ public class Aula implements Serializable {
         
     }
 
-    public int getIdModalidade() {
-        return idModalidade;
+    public String getModalidade() {
+        return modalidade;
     }
 
-    public void setIdModalidade(int idModalidade) {
-        this.idModalidade = idModalidade;
+    public void setModalidade(String modalidade) {
+        this.modalidade = modalidade;
     }
+
+    
     
     
 
@@ -77,28 +84,24 @@ public class Aula implements Serializable {
         this.hora = hora;
     }
 
-    public String getValor() {
-        return valor;
+   
+
+    public String getNomeAluno() {
+        return nomeAluno;
     }
 
-    public void setValor(String valor) {
-        this.valor = valor;
+    public void setNomeAluno(String nomeAluno) {
+        this.nomeAluno = nomeAluno;
     }
 
-    public List<Integer> getListaIdAlunos() {
-        return listaIdAlunos;
+   
+
+    public String getNomeProfessor() {
+        return nomeProfessor;
     }
 
-    public void setListaIdAlunos(List<Integer> listaIdAlunos) {
-        this.listaIdAlunos = listaIdAlunos;
-    }
-
-    public int getIdProfessor() {
-        return idProfessor;
-    }
-
-    public void setIdProfessor(int idProfessor) {
-        this.idProfessor = idProfessor;
+    public void setNomeProfessor(String nomeProfessor) {
+        this.nomeProfessor = nomeProfessor;
     }
 
     

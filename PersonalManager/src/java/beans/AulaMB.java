@@ -5,61 +5,97 @@
  */
 package beans;
 
+import dao.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import models.*;
+import beans.*;
 
 /**
  *
  * @author Ricardo
  */
 @ManagedBean
-@ApplicationScoped
+@SessionScoped
 public class AulaMB {
 
     /**
      * Creates a new instance of AulaMB
      */
-    private UsuarioMB usuarioMB;
     private Aula aula;
-    private List<Aula> listaAulas;
-    
+    private String nomeUsuarioLogado;
+
     public AulaMB() {
         aula = new Aula();
-        listaAulas = new ArrayList<Aula>();    
         FacesContext contexto = FacesContext.getCurrentInstance();
-        usuarioMB = (UsuarioMB) contexto.getExternalContext().getSessionMap().get("usuarioMB");
+        
+        
+        LoginMB loginMB = (LoginMB) contexto.getExternalContext().getSessionMap().get("loginMB");
+        
+         nomeUsuarioLogado = loginMB.getUsuarioLogado().getNome();
     }
-    
+
     /*public String addAluno(){
         
+     }
+    
+     public String addProfessor(){
+        
+     }*/
+    
+    
+    
+    public String addAula(Usuario u) {
+        
+
+        AulaDao aulaBD = new AulaDaoJpa();
+
+       
+        String nomeProfessor = u.getNome();
+        String modalidade = u.getModalidade();
+
+        
+
+        if(aula != null){
+            
+         this.aula.setNomeAluno(nomeUsuarioLogado);
+         this.aula.setModalidade(modalidade);
+         this.aula.setNomeProfessor(nomeProfessor);
+            
+         System.out.println(aula.getModalidade() + "\n" + aula.getNomeProfessor());
+            
+         aulaBD.salvar(aula);
+         //usuarioAux = usuario;
+            
+       
+         return (null);
+         }
+         else{
+         return (null);
+         }
+       
+        
     }
     
-    public String addProfessor(){
-        
-    }*/
-    
-    
-    
-    public String addAula() {
-        if(aula != null){
-            listaAulas.add(aula);
-        //usuarioAux = usuario;
-        this.aula = new Aula();
+      public String delete(Aula a){
+        AulaDao aulaBD = new AulaDaoJpa();
+        aulaBD.remover(a);
        
-        return ("/professor/paginaDoProfessor?faces-redirect=true");
-        }
-        else{
-            return ("/professor/paginaDoProfessor?faces-redirect=true");
-        }
-        /*if (usuarioAux.getTipo() == 1) {
-         return ("/professor/paginaDoProfessor?faces-redirect=true"); //para Repeat, altere para usuariosRepeat
-         } else {
-         return ("/aluno/paginaDoAluno?faces-redirect=true"); //para Repeat, altere para usuariosRepeat
-         }*/
+        
+        return null;
+    }
+    
+    public List<Aula> getAulasAluno(){
+        AulaDao aulaBD = new AulaDaoJpa();
+        return aulaBD.listarAulasAluno(nomeUsuarioLogado);
+    }
+    
+    public List<Aula> getAulasProfessor(){
+        AulaDao aulaBD = new AulaDaoJpa();
+        return aulaBD.listarAulasProfessor(nomeUsuarioLogado);
     }
 
     public Aula getAula() {
@@ -70,24 +106,6 @@ public class AulaMB {
         this.aula = aula;
     }
 
-    public UsuarioMB getUsuarioMB() {
-        return usuarioMB;
-    }
+    
 
-    public void setUsuarioMB(UsuarioMB usuarioMB) {
-        this.usuarioMB = usuarioMB;
-    }
-
-    public List<Aula> getListaAulas() {
-        return listaAulas;
-    }
-
-    public void setListaAulas(List<Aula> listaAulas) {
-        this.listaAulas = listaAulas;
-    }
-    
-    
-    
-    
-    
 }
