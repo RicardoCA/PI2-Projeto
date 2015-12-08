@@ -19,4 +19,5 @@ public interface UsuarioDao {
     public List<Usuario> listar();   
     public List<Usuario> listarAlunos();
     public List<Usuario> listarProfessores();
+    public List<Usuario> listarProfessoresPorModalidade(String modalidade);
 }

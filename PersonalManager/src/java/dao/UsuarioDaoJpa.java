@@ -14,8 +14,8 @@ import util.JpaUtil;
  *
  * @author Ricardo
  */
-public class UsuarioDaoJpa implements UsuarioDao{
-    
+public class UsuarioDaoJpa implements UsuarioDao {
+
     @Override
     public void salvar(Usuario u) {
         EntityManager em = JpaUtil.getEntityManager();
@@ -33,7 +33,7 @@ public class UsuarioDaoJpa implements UsuarioDao{
     @Override
     public void remover(Usuario u) {
         EntityManager em = JpaUtil.getEntityManager();
-        em.getTransaction().begin();        
+        em.getTransaction().begin();
         em.remove(em.merge(u));
         em.getTransaction().commit();
         em.close();
@@ -46,8 +46,6 @@ public class UsuarioDaoJpa implements UsuarioDao{
         em.close();
         return (usuario);
     }
-    
-    
 
     @Override
     public List<Usuario> listar() {
@@ -56,20 +54,30 @@ public class UsuarioDaoJpa implements UsuarioDao{
         em.close();
         return (listaUsuarios);
     }
-    
-    
-     @Override
+
+    @Override
     public List<Usuario> listarAlunos() {
         EntityManager em = JpaUtil.getEntityManager();
         List<Usuario> listaUsuarios = em.createQuery("SELECT u FROM Usuario u WHERE u.tipo = 2").getResultList();
         em.close();
         return (listaUsuarios);
     }
-    
-      @Override
+
+    @Override
     public List<Usuario> listarProfessores() {
         EntityManager em = JpaUtil.getEntityManager();
         List<Usuario> listaUsuarios = em.createQuery("SELECT u FROM Usuario u WHERE u.tipo = 1").getResultList();
+        em.close();
+        return (listaUsuarios);
+    }
+
+    @Override
+    public List<Usuario> listarProfessoresPorModalidade(String modalidade) {
+        EntityManager em = JpaUtil.getEntityManager();
+        
+        List<Usuario> listaUsuarios = em.createQuery("SELECT u FROM Usuario u WHERE u.modalidade LIKE :modalidade")
+                .setParameter("modalidade", modalidade)
+                .getResultList();
         em.close();
         return (listaUsuarios);
     }

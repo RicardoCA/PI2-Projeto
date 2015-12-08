@@ -100,9 +100,9 @@
                                 </h:selectOneMenu>
 
                                 <h:outputLabel for="idModalidade" value="Modalidade:" />
-                                <h:selectOneMenu id="idModalidade"  class="form-control" value="#{loginMB.usuarioLogado.idModalidade}">
+                                <h:selectOneMenu id="idModalidade"  class="form-control" value="#{loginMB.usuarioLogado.modalidade}">
                                     <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                                    <f:selectItems value="#{modalidadeMB.getModalidades()}" var="modalidade" itemLabel="#{modalidade.getNome()}" itemValue="#{modalidade.getId()}"/>
+                                    <f:selectItems value="#{modalidadeMB.getModalidades()}" var="modalidade" itemLabel="#{modalidade.getNome()}" itemValue="#{modalidade.getNome()}"/>
                                 </h:selectOneMenu>
 
 

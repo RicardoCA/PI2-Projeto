@@ -51,65 +51,76 @@
                 <div class="container">
                     <h:form>
 
-                        <h:dataTable var="professor" value="#{usuarioMB.getProfessores()}" class="table table-hover" border="1">
-                            <h:column>
-                                <f:facet name="header">ID</f:facet>
-                                    #{professor.id}
-                            </h:column>
+                        <h:panelGroup>
+                            <h:form>
+                                <h:outputLabel value="Modalidade: "  for="modalidadeTxt"/>
+                                <h:selectOneMenu id="idModalidade">
+                                    <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                                    <f:selectItems value="#{modalidadeMB.getModalidades()}" var="modalidade" itemLabel="#{modalidade.getNome()}" itemValue="#{modalidade.getNome()}" />
+                                </h:selectOneMenu> 
+                                <h:commandButton action="#{usuarioMB.retornaProfessoresModalidade('Musculação')}" id="aplicarBtn" value="Aplicar" class="btn btn-success btn-sm" />
+                        </h:form>
+                    </h:panelGroup>
 
-                            <h:column>
-                                <f:facet name="header">Nome</f:facet>
-                                    #{professor.nome}
-                            </h:column>
+                    <h:dataTable var="professor" value="#{usuarioMB.getProfessores()}" class="table table-hover" border="1">
+                        <h:column>
+                            <f:facet name="header">ID</f:facet>
+                                #{professor.id}
+                        </h:column>
 
-                            <h:column>
-                                <f:facet name="header">Sexo</f:facet>
-                                    #{professor.sexoString}
-                            </h:column>
+                        <h:column>
+                            <f:facet name="header">Nome</f:facet>
+                                #{professor.nome}
+                        </h:column>
 
-                            <h:column>
-                                <f:facet name="header">Email</f:facet>
-                                    #{professor.email}
-                            </h:column>
+                        <h:column>
+                            <f:facet name="header">Sexo</f:facet>
+                                #{professor.sexoString}
+                        </h:column>
 
-                            <h:column>
-                                <f:facet name="header">Telefone</f:facet>
-                                    #{professor.telefone}
-                            </h:column>
+                        <h:column>
+                            <f:facet name="header">Email</f:facet>
+                                #{professor.email}
+                        </h:column>
 
-                            <h:column>
-                                <f:facet name="header">Disciplina</f:facet>
-                                Ainda não disponível
-                            </h:column>
+                        <h:column>
+                            <f:facet name="header">Telefone</f:facet>
+                                #{professor.telefone}
+                        </h:column>
 
-                            <h:column>
-                                <f:facet name="header">Opções</f:facet>
-                                <h:commandLink action="#">
-                                    <button type="button" class="btn btn-success" aria-label="Left Align">
-                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                        Agendar
-                                    </button>
-                                </h:commandLink>
-                            </h:column>
+                        <h:column>
+                            <f:facet name="header">Modalidade</f:facet>
+                            #{professor.modalidade}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Opções</f:facet>
+                            <h:commandLink action="#">
+                                <button type="button" class="btn btn-success" aria-label="Left Align">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    Agendar
+                                </button>
+                            </h:commandLink>
+                        </h:column>
 
 
 
-                        </h:dataTable>
-                    </h:form>
-                </div>
-            </ui:define>
+                    </h:dataTable>
+                </h:form>
+            </div>
+        </ui:define>
 
-            <ui:define name="bottom">
-                <nav class="hidden-xs navbar navbar-fixed-bottom">
-                    <div class="container-fluid">
-                        <div class="navbar-header pull-left">
-                            <p style="color: #000;">© Todos os direitos reservados a Ricardo e Eduardo!</p>
+        <ui:define name="bottom">
+            <nav class="hidden-xs navbar navbar-fixed-bottom">
+                <div class="container-fluid">
+                    <div class="navbar-header pull-left">
+                        <p style="color: #000;">© Todos os direitos reservados a Ricardo e Eduardo!</p>
 
-                        </div>
                     </div>
-                </nav>
-            </ui:define>
-        </ui:composition>
-    </h:body>
+                </div>
+            </nav>
+        </ui:define>
+    </ui:composition>
+</h:body>
 </html>
 

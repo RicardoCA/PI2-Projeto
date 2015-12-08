@@ -32,7 +32,7 @@ public class Usuario implements Serializable{
     private String estado;
     private int tipo;
     
-    private int idModalidade;
+    private String modalidade;
     
     
     
@@ -74,12 +74,12 @@ public class Usuario implements Serializable{
          }
      }
 
-    public int getIdModalidade() {
-        return idModalidade;
+    public String getModalidade() {
+        return modalidade;
     }
 
-    public void setIdModalidade(int modalidade) {
-        this.idModalidade = modalidade;
+    public void setModalidade(String modalidade) {
+        this.modalidade = modalidade;
     }
      
      

@@ -173,5 +173,11 @@ public class UsuarioMB {
         UsuarioDao usuarioBD = new UsuarioDaoJpa();
         return usuarioBD.listar();
     }
+    
+    
+    public List<Usuario> retornaProfessoresModalidade(String modalidade){
+        UsuarioDao usuarioBD = new UsuarioDaoJpa();
+        return usuarioBD.listarProfessoresPorModalidade(modalidade);
+    }
 
 }
